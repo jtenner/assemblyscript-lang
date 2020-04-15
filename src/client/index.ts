@@ -27,12 +27,16 @@ export function activate(context: ExtensionContext) {
       // Options of the language client
       let clientOptions: LanguageClientOptions = {
           // Activate the server for DOT files
-          documentSelector: ['asc'],
+          documentSelector: ['ts'],
           synchronize: {
               // Synchronize the section 'assemblyScriptLanguageServer' of the settings to the server
               configurationSection: 'assemblyScriptLanguageServer',
-              // Notify the server about file changes to '.clientrc files contained in the workspace
-              fileEvents: workspace.createFileSystemWatcher('**/.asc')
+              // Notify the server about file changes to '.ts' files contained in the assembly folder
+              fileEvents: [
+                workspace.createFileSystemWatcher('assembly/**/*.ts'),
+                workspace.createFileSystemWatcher('assembly/**/*.asc'),
+                workspace.createFileSystemWatcher('package.json'),
+              ]
           }
       }
       
