@@ -37,16 +37,18 @@ export function activate(context: ExtensionContext) {
                 workspace.createFileSystemWatcher('assembly/**/*.asc'),
                 workspace.createFileSystemWatcher('package.json'),
               ]
-          }
+          },
+          outputChannelName: "AssemblyScript"
       }
       
       // Create the language client and start the client.
-      let disposable = new LanguageClient('assemblyScriptLanguageServer', 'Language Server', serverOptions, clientOptions).start();
+      // let disposable = new LanguageClient('assemblyScriptLanguageServer', 'AssemblyScript Language Server', serverOptions, clientOptions).start();
       
       // Push the disposable to the context's subscriptions so that the 
       // client can be deactivated on extension deactivation
-      context.subscriptions.push(disposable);
+      // context.subscriptions.push(disposable);
   
+      console.log("Activated!");
 }
 
 // this method is called when your extension is deactivated

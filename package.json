@@ -1,6 +1,7 @@
 {
 	"name": "assemblyscript-lang",
 	"main": "lib/client/index.js",
+	"activationEvents": [],
 	"displayName": "AssemblyScript lang",
 	"description": "AssemblyScript language highlighting",
 	"publisher": "battlelinegames",
